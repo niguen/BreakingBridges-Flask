@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block header %}
+
+{% endblock %}
+{% block content %}
+
+
+<div class="container">
+
+    <div class="row align-items-center">
+        <div class="col">
+
+        </div>
+        <div class="col align-self-center">
+            <form method="post">
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="departmentSelect">Auswahl Abteilung:</label>
+                        <select class="form-control" id="departmentSelect">
+                          <option>IT</option>
+                          <option>HR</option>
+                          <option>Abteilung X</option>
+                          <option>Abteilung Y</option>
+                        </select>
+                      </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+        </div>
+        <div class="col">
+
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock %}
