@@ -41,14 +41,13 @@ def departments():
        
     if request.method == 'POST':
         error = None
-        department = request.form.get('departmentInput')
+        department = request.form.get('departmentSelect')
 
-        if department == '':
-            error = 'Department not found'
+        if department == "":
+            error = 'Bitte wählen Sie eine Abteilung aus.'
             flash('ERROR: ' + error)
-            return render_template('departments.html')
+            return render_template('departmentSelektion.html')
         
-
         session['department'] = department
         return redirect(url_for('main.invitation'))
 
@@ -56,4 +55,9 @@ def departments():
 
 @bp.route("/invitation")
 def invitation():
-    return render_template('invitation.html')
+
+    mail = session.get('mail')
+    department = session.get('department')
+    context = {'mail': mail, 'department': department}
+
+    return render_template('invitation.html', **context)

@@ -6,5 +6,5 @@ from auth.routes import login_required
 
 @bp.route("/")
 @login_required
-def adminIndex():
+def index():
     return render_template('admin/index.html')
