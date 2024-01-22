@@ -1,6 +1,6 @@
 from flask import Flask
 from config import Config
-# from models_sqlite import db
+from models_sqlite import db
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -10,7 +10,7 @@ def create_app(config_class=Config):
 
     # initialize the app with the extension
     #db = SQLAlchemy(app)
-    # db.init_app(app)    
+    db.init_app(app)    
 
     # Initialize Flask extensions here
 
