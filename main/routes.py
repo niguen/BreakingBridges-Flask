@@ -1,7 +1,7 @@
-from flask import render_template, request, flash, redirect, url_for, session, g
-import uuid
+from flask import render_template, request, flash, redirect, url_for, session
 from main import bp
 import re
+from models import db, Participant
 
 
 def check_mail_domain(email, domain):
@@ -58,6 +58,12 @@ def invitation():
 
     mail = session.get('mail')
     department = session.get('department')
+
+    # save to db
+    participant = Participant(mail = mail, department = department)
+    db.session.add(participant)
+    db.session.commit()
+
     context = {'mail': mail, 'department': department}
 
     return render_template('invitation.html', **context)
