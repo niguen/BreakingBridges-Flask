@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path
 
-load_dotenv()
+load_dotenv(dotenv_path='.env', override=True)
 
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY')
