@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block header %}
+
+{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Provadis</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Mail</th>
+                        <th scope="col">Abteilung</th>
+                        <th scope="col">Gruppe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for participant in participants %}
+                    <tr>
+                        <td>{{participant.mail}}</td>
+                        <td>{{participant.department}}</td>
+                        <td>{{participant.group}}</td>
+                    </tr>
+    
+                    {% endfor %}
+                </tbody>
+            </table>
+            <hr>
+            <button type="submit" class="btn btn-primary">Einladungen verschicken</button>
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

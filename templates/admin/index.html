@@ -10,13 +10,13 @@
    
         <div class="card-body">
             <h5 class="card-title">SecretLunch Provadis</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Anmeldungen: 6</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Anmeldungen: {{ participantCount}}</h6>
 
             <form method="post">
                 <div class="form-group">
                     <div class="form-group">
-                        <label for="groupSelect">Gruppengröße auswählen:</label>
-                        <select class="form-control" id="groupSelect" name="groupSelect">
+                        <label for="groupSizeSelect">Gruppengröße auswählen:</label>
+                        <select class="form-control" id="groupSizeSelect" name="groupSizeSelect">
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
