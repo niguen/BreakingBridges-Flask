@@ -33,7 +33,10 @@ def groups():
 
     groupSize = session.get('groupSize')
     participants = Participant.query.all()
-    participantCount = len[participants]
+    participantCount = len(participants)
+
+    # departments = Participant.query('department').distinct().all()
+    # flash(departments)
 
     numGroups = participants // groupSize
     if participantCount % groupSize != 0:  # Check if there are remaining people
