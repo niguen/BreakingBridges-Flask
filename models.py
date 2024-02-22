@@ -14,4 +14,4 @@ class Participant(db.Model):
     name = db.Column(db.String(120), nullable=False)
     surname = db.Column(db.String(120), nullable=False)
     date = db.Column(db.String(120), nullable=False)
-    invtitationSent = db.Column(db.Boolean, nullable=False, default=False)
+    invitationSent = db.Column(db.Boolean, nullable=False, default=False)
