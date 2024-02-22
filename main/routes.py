@@ -63,6 +63,9 @@ def departments():
 
         
         session['department'] = department
+        session['name'] = name
+        session['surname'] = surname
+        session['date'] = date
         return redirect(url_for('main.invitation'))
 
     return render_template('departmentSelektion.html')
@@ -72,9 +75,9 @@ def invitation():
 
     mail = session.get('mail')
     department = session.get('department')
-    name = request.form.get('nameInput')
-    surname = request.form.get('surnameInput')
-    date = request.form.get('dateSelect')
+    name = session.get('name')
+    surname = session.get('surname')
+    date = session.get('date')
 
     # save to db
     participant = Participant(mail = mail, department = department, name = name, surname = surname, date = date)
