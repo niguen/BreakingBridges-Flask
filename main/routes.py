@@ -42,11 +42,25 @@ def departments():
     if request.method == 'POST':
         error = None
         department = request.form.get('departmentSelect')
+        name = request.form.get('nameInput')
+        surname = request.form.get('surnameInput')
+        date = request.form.get('dateSelect')
 
         if department == "":
-            error = 'Bitte wählen Sie eine Abteilung aus.'
+            error = 'Bitte wähle eine Abteilung aus.'
             flash('ERROR: ' + error)
             return render_template('departmentSelektion.html')
+        
+        if name == "" or surname == "":
+            error = 'Bitte gib deinen Namen ein.' + str(date)
+            flash('ERROR: ' + error)
+            return render_template('departmentSelektion.html')
+        
+        if date is None or date == "":
+            error = 'Bitte wähle ein Datum aus.'
+            flash('ERROR: ' + error)
+            return render_template('departmentSelektion.html')
+
         
         session['department'] = department
         return redirect(url_for('main.invitation'))
@@ -58,9 +72,12 @@ def invitation():
 
     mail = session.get('mail')
     department = session.get('department')
+    name = request.form.get('nameInput')
+    surname = request.form.get('surnameInput')
+    date = request.form.get('dateSelect')
 
     # save to db
-    participant = Participant(mail = mail, department = department)
+    participant = Participant(mail = mail, department = department, name = name, surname = surname, date = date)
     db.session.add(participant)
     db.session.commit()
 

@@ -20,9 +20,9 @@
 <!-- Image and text -->
 <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="{{ url_for('main.index')}}">
-        <img src="{{ url_for('static', filename='logo.jpeg') }}" width="40" height="40"
+        <img src="{{ url_for('static', filename='secretLunchLogo.png') }}" width="40" height="40"
         class="d-inline-block align-center" alt="">
-      BreakingBridges
+      Secret Lunch
     </a>
   </nav>
 
@@ -34,7 +34,7 @@
                 <div class="col">
 
                 </div>
-                <div class="col align-self-center">
+                <div class="col align-self-center" style="height: 100px;">
                     {% for message in get_flashed_messages() %}
                     <div class="alert alert-danger" role="alert">
                      {{ message }}
