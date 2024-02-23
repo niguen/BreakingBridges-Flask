@@ -26,7 +26,7 @@ def index():
         session['mail'] = mail
 
 
-        if check_mail_domain(mail, 'provadis.de'):
+        if check_mail_domain(mail, 'stud-provadis-hochschule.de'):
             return redirect(url_for('main.departments'))
     
         
