@@ -45,6 +45,7 @@ def departments():
         name = request.form.get('nameInput')
         surname = request.form.get('surnameInput')
         date = request.form.get('dateSelect')
+        hobby = request.form.get('hobbyInput')
 
         if department == "":
             error = 'Bitte wähle eine Abteilung aus.'
@@ -66,6 +67,7 @@ def departments():
         session['name'] = name
         session['surname'] = surname
         session['date'] = date
+        session['hobby'] = hobby
         return redirect(url_for('main.invitation'))
 
     return render_template('departmentSelektion.html')
@@ -78,9 +80,10 @@ def invitation():
     name = session.get('name')
     surname = session.get('surname')
     date = session.get('date')
+    hobby = session.get('hobby')
 
     # save to db
-    participant = Participant(mail = mail, department = department, name = name, surname = surname, date = date)
+    participant = Participant(mail = mail, department = department, name = name, surname = surname, aboutMe = hobby, date = date)
     db.session.add(participant)
     db.session.commit()
 
