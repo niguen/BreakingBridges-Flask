@@ -28,6 +28,11 @@ def index():
 
         if check_mail_domain(mail, 'stud-provadis-hochschule.de'):
             return redirect(url_for('main.departments'))
+        
+        if check_mail_domain(mail, 'doz-provadis-hochschule.de'):
+            return redirect(url_for('main.departments'))
+        
+        
     
         
         error = 'Mail not found'
